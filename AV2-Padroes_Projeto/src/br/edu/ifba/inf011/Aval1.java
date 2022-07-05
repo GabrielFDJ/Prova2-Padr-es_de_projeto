@@ -3,6 +3,10 @@ package br.edu.ifba.inf011;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.chrono.ChronoLocalDateTime;
+import java.util.Calendar;
 
 import br.edu.ifba.inf011.builder.Exercicio;
 import br.edu.ifba.inf011.builder.ExercicioBuilder;
@@ -10,6 +14,8 @@ import br.edu.ifba.inf011.exception.TipoIncompativelException;
 import br.edu.ifba.inf011.modelo.Equipamento;
 import br.edu.ifba.inf011.modelo.GrupoMuscular;
 import br.edu.ifba.inf011.modelo.TipoExercicio;
+import br.edu.ifba.inf011.observer.ConcrectSubject;
+import br.edu.ifba.inf011.observer.Subject;
 import br.edu.ifba.inf011.singleton.CatalogoEquipamentos;
 import br.edu.ifba.inf011.singleton.CatalogoExercicios;
 import br.edu.ifba.inf011.strategy.Programa;
@@ -43,7 +49,10 @@ public class Aval1 {
 					
 			CatalogoExercicios cexe = new CatalogoExercicios();			
 			
-			Programa programa = new Programa();
+			ConcrectSubject csubject = new ConcrectSubject();			
+			Programa programa = new Programa(csubject);				
+			csubject.add(programa);			
+			
 			programa.setTipo(TipoPrograma.ABCD);
 			programa.init(cexe);			
 			while(programa.temProximo()) {
@@ -53,7 +62,7 @@ public class Aval1 {
 				} catch (Exception e) {
 					System.out.printf("Repouso");
 				}				
-			}		
+			}				
 			
 			programa.setTipo(TipoPrograma.TREINAMENTOCARDIO);
 			programa.init(cexe);			
@@ -75,8 +84,7 @@ public class Aval1 {
 				} catch (Exception e) {
 					System.out.printf("Repouso");
 				}				
-			}	
-			
+			}			
 		} catch (TipoIncompativelException e) {
 			e.printStackTrace();
 		}

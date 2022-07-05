@@ -15,7 +15,6 @@ public class Exercicio {
 	private List<GrupoMuscular> gruposMusculares;
 	private List<Equipamento> equipamentos;
 	
-	
 	public Exercicio(String id, String descricao, List<TipoExercicio> tipos,
 					 List<GrupoMuscular> gruposMusculares, 
 					 List<Equipamento> equipamentos) {
@@ -54,13 +53,6 @@ public class Exercicio {
 
 	public List<TipoExercicio> getTipos() {
 		return tipos;
-	}
-
-	
-	
-	
-	
-	 
-	
+	}	
 	
 }

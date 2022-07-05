@@ -3,8 +3,9 @@ package br.edu.ifba.inf011.strategy;
 import java.util.List;
 
 import br.edu.ifba.inf011.builder.Exercicio;
+import br.edu.ifba.inf011.observer.Observer;
 
-public class Serie {
+public class Serie{
 	
 	private int numRepeticoes;
 	private int qtd;
@@ -28,5 +29,5 @@ public class Serie {
 
 	public void setSeries(List<Serie> series) {
 		this.series = series;
-	}
+	}	
 }
