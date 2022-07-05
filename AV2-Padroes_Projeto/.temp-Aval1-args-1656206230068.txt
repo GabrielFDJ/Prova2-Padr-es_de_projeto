@@ -1,0 +1,5 @@
+-Dfile.encoding=UTF-8
+-classpath
+"C:\\Users\\Gabri\\Downloads\\INF011-2022.1-master\\DPAvalI2022.1\\bin"
+-XX:+ShowCodeDetailsInExceptionMessages
+br.edu.ifba.inf011.Aval1
