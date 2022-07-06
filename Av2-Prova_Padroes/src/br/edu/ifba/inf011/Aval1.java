@@ -32,17 +32,23 @@ public class Aval1 {
 			Exercicio exercicio = ExercicioBuilder.getFactory()
 					  .clear().descricao("Supino")
 					  .withEquipamento(barra)
-					  .withEquipamento(peso)
-					  .withGrupoMuscular(GrupoMuscular.Ombros)
+					  .withEquipamento(peso)					  
 					  .withGrupoMuscular(GrupoMuscular.Costa)
 					  .withTipo(TipoExercicio.Cardiovascular).build("SUP01");
 			System.out.println(exercicio);			
 			
+			Exercicio exercicio01 = ExercicioBuilder.getFactory()
+					  .clear().descricao("Agachamento")
+					  .withEquipamento(barra)
+					  .withEquipamento(peso)
+					  .withGrupoMuscular(GrupoMuscular.Inferiores)					  
+					  .withTipo(TipoExercicio.Cardiovascular).build("INF02");
+			System.out.println(exercicio01);			
+			
 			Exercicio exercicio02 = ExercicioBuilder.getFactory()
 					  .clear().descricao("Apoio")
 					  .withGrupoMuscular(GrupoMuscular.Peito)
-					  .withGrupoMuscular(GrupoMuscular.Addominal)
-					  .withTipo(TipoExercicio.Resistido)
+					  .withGrupoMuscular(GrupoMuscular.Addominal)					  	
 					  .withTipo(TipoExercicio.Funcional)
 					  .build("APO01");
 			System.out.println(exercicio02);			
@@ -58,33 +64,14 @@ public class Aval1 {
 			while(programa.temProximo()) {
 				Serie serie = programa.proximo();
 				try {
-					serie.executar();
+					serie.executarVideo();
 				} catch (Exception e) {
 					System.out.printf("Repouso");
 				}				
 			}				
 			
-			programa.setTipo(TipoPrograma.TREINAMENTOCARDIO);
-			programa.init(cexe);			
-			while(programa.temProximo()) {
-				Serie serie = programa.proximo();
-				try {
-					serie.executar();
-				} catch (Exception e) {
-					System.out.printf("Repouso");
-				}				
-			}	
 			
-			programa.setTipo(TipoPrograma.FULLWORKOUT);
-			programa.init(cexe);			
-			while(programa.temProximo()) {
-				Serie serie = programa.proximo();
-				try {
-					serie.executar();
-				} catch (Exception e) {
-					System.out.printf("Repouso");
-				}				
-			}			
+			
 		} catch (TipoIncompativelException e) {
 			e.printStackTrace();
 		}

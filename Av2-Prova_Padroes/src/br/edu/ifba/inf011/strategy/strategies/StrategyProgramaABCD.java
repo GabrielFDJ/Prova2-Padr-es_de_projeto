@@ -106,7 +106,7 @@ public class StrategyProgramaABCD implements StrategyPrograma {
 			for (int i = 0; i < e.getGruposMusculares().size(); i++) {
 				grupo = e.getGruposMusculares().get(i);
 				if ((GrupoMuscular.Inferiores.equals(grupo) && entrou)) {
-					this.serie = new Serie(e.getDescricao());
+					this.serie = new Serie(e.getDescricao());					
 					series.add(serie);
 					entrou = false;				
 				}

@@ -3,6 +3,8 @@ package br.edu.ifba.inf011.strategy;
 import java.util.List;
 
 import br.edu.ifba.inf011.builder.Exercicio;
+import br.edu.ifba.inf011.flyweight.Video;
+import br.edu.ifba.inf011.flyweight.VideoService;
 import br.edu.ifba.inf011.observer.Observer;
 
 public class Serie{
@@ -11,6 +13,7 @@ public class Serie{
 	private int qtd;
 	private String descricaoExercicio;
 	private List<Serie> series;
+	private VideoService videoService = new VideoService();
 	
 	public Serie(String descricaoExercicio) {
 		this.descricaoExercicio = descricaoExercicio;
@@ -22,6 +25,12 @@ public class Serie{
 					+ s.descricaoExercicio + "]");
 		}
 	}		
+	
+	public void executarVideo() {
+		for(Serie s : this.getSeries()) {			
+			System.out.print(s.videoService.rodarVideo(descricaoExercicio) + numRepeticoes + " x " + qtd);
+		}
+	}
 
 	public List<Serie> getSeries() {
 		return series;
